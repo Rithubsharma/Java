@@ -1,6 +1,6 @@
 package org.example.vendingMachine;
 
-import org.example.vendingMachine.Enums.*;
+import org.example.vendingMachine.enums.*;
 
 public interface VendingState {
     void selectProduct(Product product);

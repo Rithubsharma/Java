@@ -1,4 +1,4 @@
-package org.example.vendingMachine.Enums;
+package org.example.vendingMachine.enums;
 
 public enum Note {
     ONE(1),

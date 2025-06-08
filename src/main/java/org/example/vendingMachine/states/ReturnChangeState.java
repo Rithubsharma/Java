@@ -1,7 +1,7 @@
 package org.example.vendingMachine.states;
 
-import org.example.vendingMachine.Enums.Coin;
-import org.example.vendingMachine.Enums.Note;
+import org.example.vendingMachine.enums.Coin;
+import org.example.vendingMachine.enums.Note;
 import org.example.vendingMachine.Product;
 import org.example.vendingMachine.VendingMachine;
 import org.example.vendingMachine.VendingState;
