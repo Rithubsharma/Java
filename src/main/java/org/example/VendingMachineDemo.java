@@ -1,7 +1,9 @@
-package org.example.vendingMachine;
+package org.example;
 
 import org.example.vendingMachine.Enums.Coin;
 import org.example.vendingMachine.Enums.Note;
+import org.example.vendingMachine.Product;
+import org.example.vendingMachine.VendingMachine;
 
 public class VendingMachineDemo {
 

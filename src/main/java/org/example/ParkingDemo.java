@@ -1,5 +1,7 @@
-package org.example.parkinglot;
+package org.example;
 
+
+import org.example.parkinglot.*;
 
 import java.util.ArrayList;
 import java.util.List;
