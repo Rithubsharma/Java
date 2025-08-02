@@ -2,11 +2,11 @@ package org.example.pubSubSystem.pubSub;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ConusmerMetaData {
+public class ConsumerMetaData {
     private String consumerId;
     private AtomicInteger offset;
 
-    public ConusmerMetaData(String consumerId) {
+    public ConsumerMetaData(String consumerId) {
         this.consumerId = consumerId;
         this.offset = new AtomicInteger(0);
     }

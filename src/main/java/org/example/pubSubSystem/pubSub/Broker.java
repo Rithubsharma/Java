@@ -4,12 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Broker {
-    Map<String, Map<String, ConusmerMetaData>> conusmers;
+    Map<String, Map<String, ConsumerMetaData>> consumers;
     Map<String, Topic> topics;
     private static Broker broker;
 
     public Broker () {
-        conusmers = new HashMap<>();
+        consumers = new HashMap<>();
         topics = new HashMap<>();
     }
 
@@ -22,15 +22,15 @@ public class Broker {
 
     public void createTopic(String topic) {
         topics.put(topic, new Topic(topic));
-        conusmers.put(topic, new HashMap<>());
+        consumers.put(topic, new HashMap<>());
     }
 
     public void registerConsumer(String topic, String consumerId) {
-        ConusmerMetaData conusmerMetaData = new ConusmerMetaData(consumerId);
-        if (!conusmers.containsKey(topic)) {
+        ConsumerMetaData consumerMetaData = new ConsumerMetaData(consumerId);
+        if (!consumers.containsKey(topic)) {
             System.out.println("Topic " + topic + " does not exist");
         } else {
-            conusmers.get(topic).put(consumerId, conusmerMetaData);
+            consumers.get(topic).put(consumerId, consumerMetaData);
         }
     }
 
@@ -47,10 +47,10 @@ public class Broker {
             System.out.println("Topic " + topic + " does not exist");
             return null;
         } else {
-            if (!conusmers.get(topic).containsKey(consumerId)) {
+            if (!consumers.get(topic).containsKey(consumerId)) {
                 System.out.println("Topic " + topic + " does not exist");
             } else {
-                ConusmerMetaData conusmerMetaData = conusmers.get(topic).get(consumerId);
+                ConsumerMetaData conusmerMetaData = consumers.get(topic).get(consumerId);
                 if (topics.get(topic).getCounter() < conusmerMetaData.getOffset()) {
                     System.out.println("Topic " + topic + " has no more messages");
                     return null;
@@ -64,8 +64,8 @@ public class Broker {
     }
 
     public void ack(String topic, String consumerId) {
-        ConusmerMetaData conusmerMetaData = conusmers.get(topic).get(consumerId);
-        conusmerMetaData.incrementOffset();
-        conusmers.get(topic).put(consumerId, conusmerMetaData);
+        ConsumerMetaData consumerMetaData = consumers.get(topic).get(consumerId);
+        consumerMetaData.incrementOffset();
+        consumers.get(topic).put(consumerId, consumerMetaData);
     }
 }
